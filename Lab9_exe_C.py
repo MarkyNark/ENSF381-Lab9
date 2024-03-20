@@ -1,20 +1,20 @@
 import requests
 import json
 
-def fetch_product_data ( url ) :
+def fetch_product_data (url):
     try :
-        response = requests . get ( url )
+        response = requests.get (url)
          # Raises an error for bad responses
-        response . raise_for_status ()
+        response . raise_for_status()
         # The JSON structure includes a ' products ' key
-        return response . json () [ ' products ']
-    except requests . exceptions . RequestException as e :
-        print ( f " Error fetching data : { e }")
+        return response.json() ['products']
+    except requests.exceptions.RequestException as e:
+        print (f" Error fetching data: { e }")
         return None
     
-def list_all_products ( products ) :
-    for product in products :
-        print ( f " { product [ ' name ' ]} ( { product [ ' price ' ]} )")
+def list_all_products (products):
+    for product in products:
+        print (product['title'])
         
 def search_product(product, name):
     for p in product:
@@ -28,7 +28,7 @@ def main():
     
     if products:
         while True:
-            choice = input("Choose an option: \n1. List all products\n2. Search for a product\n3. Exit\n")
+            choice = input("Choose an option: \n1. List all products\n2. Search for a product\n3. Exit\n> ")
             if choice == "1":
                 list_all_products(products)
             elif choice == "2":
