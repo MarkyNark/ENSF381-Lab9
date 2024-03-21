@@ -27,7 +27,7 @@ def search_product(product, name):
 
     for p in product:
         if p['title'] == name:
-            print(json.dumps(p, indent=1))
+            print(json.dumps(p, indent=4))
             return p
     return None
 
